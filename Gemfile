@@ -41,6 +41,8 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'simple-rss'
+gem 'whenever', require: false
 
 group :test, :development do
   gem 'capybara'
@@ -53,5 +55,3 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'valid_attribute'
 end
-
-

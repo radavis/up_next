@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe EztvItems do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_valid(:show_name).when("Futurama", "Burn Notice") }
 end
