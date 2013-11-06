@@ -21,7 +21,6 @@
 
 set :output, "#{path}/log/cron.log"
 
-every 1.hours do
-#every 2.minutes do
-  rake "db:seed"
+every :hour do
+  runner "EztvItems.update_from_rss"
 end
