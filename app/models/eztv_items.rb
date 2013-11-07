@@ -39,21 +39,29 @@ class EztvItems < ActiveRecord::Base
         eztv_item = EztvItems.find_or_create_by(
           show_name: description['show name'],
           episode_title: description['episode title'],
+          season: description['season'],
+          episode: description['episode'],
           link: item.link,
           description: item.description,
           comments: item.comments,
           category: item.category,
           guid: item.guid,
-          created_at: item.pubDate
+          created_at: item.pubDate,
+          channel: description['channel'],
+          episode_date: description['episode date']
         )
 
-        eztv_item.channel = description['channel'] if description['channel']
-        eztv_item.season = description['season'] if description['season']
-        eztv_item.episode = description['episode'] if description['episode']
         eztv_item.save
-
         logger.info "EztvItem: #{eztv_item.show_name} #{eztv_item.created_at}"
       end
+    end
+  end
+
+  def show_number
+    if season and episode
+      return "S%02iE%02i" % [season, episode]
+    else
+      return episode_date
     end
   end
 end
