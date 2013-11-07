@@ -1,0 +1,23 @@
+<h1>Shows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Show</th>
+      <th>Episode</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shows.each do |show| %>
+      <tr class="show" id="<%= show.id %>">
+        <td><%= show.show_number %>
+        <td><%= show.show_name %></td>
+        <td><%= show.episode_title %></td>
+        <td><%=link_to "torrent", show.link %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

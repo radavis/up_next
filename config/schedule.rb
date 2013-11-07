@@ -22,5 +22,6 @@
 set :output, "#{path}/log/cron.log"
 
 every :hour do
-  runner "EztvItems.update_from_rss"
+#every 2.minutes do
+  runner 'EztvItems.update_from_rss'
 end

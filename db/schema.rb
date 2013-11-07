@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131106045820) do
+ActiveRecord::Schema.define(version: 20131107152922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "eztv_items", force: true do |t|
-    t.string   "show_name"
+    t.string   "show_name",     null: false
     t.string   "episode_title"
     t.integer  "season"
     t.integer  "episode"
-    t.string   "link"
+    t.string   "link",          null: false
     t.string   "description"
     t.string   "comments"
     t.string   "category"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20131106045820) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "channel"
+    t.string   "episode_date"
   end
 
 end
